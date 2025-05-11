@@ -52,6 +52,8 @@ __h(n) = |x₁ - x₂| + |y₁ - y₂|__
 
 This heuristic is suitable for grid-based movement without diagonals.
 
+---
+
 ## ⚙️ How to Run
 ### Requirements
 - Python 3.6 or higher
@@ -108,8 +110,60 @@ S * 1 0 0
 1 * 1 0 0  
 1 * * E 1  
 ```
+## 🧪 Example 2 – No Possible Path
+In this scenario, the maze configuration prevents the robot from reaching the end point due to complete blockage by obstacles.
+
+__🔢 Input Maze:__
+```text
+S 0 1 0 0  
+0 0 1 0 1  
+1 1 1 0 0  
+1 0 0 E 1
+```
+- S = Start point
+- E = End point
+- 1 = Obstacles (walls)
+- 0 = Free space
+
+### 🧠 Why No Path Exists?
+- The robot starts at position (0, 0)
+- The direct route toward the end at (3, 3) is completely blocked by walls in the middle row: the third row ([1, 1, 1, 0, 0]) forms an impassable barrier.
+- Even alternate routes (like from the bottom left or far right) are closed off.
+
+__🧾 Output:__
+```pgsql
+No path found.
+```
+
+__🔍 Visualization:__
+```mathematica
+S 0 1 0 0
+0 0 1 0 1
+1 1 1 0 0
+1 0 0 E 1
+```
+✅ This test case demonstrates the algorithm’s ability to detect and correctly report the absence of a viable path between S and E.
 
 ---
+## 📁 Code Structure
+- ```calcular_heuristica(ponto1, ponto2)``` Calculates the Manhattan distance between two points. This serves as the heuristic function h(n) used in the A* algorithm.
+- ```busca_a_estrela(mapa, origem, destino)``` Core implementation of the A* search algorithm.
+  - Uses a priority queue (```heapq```) to explore nodes with the lowest estimated total cost ```f(n) = g(n) + h(n)```.
+  - Maintains the actual cost to reach each cell (```g(n)```) and reconstructs the path once the goal is reached.
+  - Returns a list of coordinates representing the optimal path, or ```None``` if no path is found.
+- ```exibir_mapa_com_rota(mapa, rota)``` Generates a visual representation of the maze with the found path overlaid:
+  - ```'S'```: start point
+  - ```'E'```: end point
+  - ```'*'```: cells in the path
+  - ```'1'```: walls
+  - ```'0'```: free cells
+- ```main``` block
+  - Initializes a sample maze with 'S' and 'E' markers.
+  - Locates the start and end positions in the maze and converts them to 0 for pathfinding purposes.
+  - Calls the A* search and prints either the path found or a message indicating that no solution exists.
+  - Displays the maze with the marked path if a solution is found.
+
+
 
 ## 💡 Future Improvements (Optional Features)
 These features were not implemented in this version, but could be added to enhance the project:
