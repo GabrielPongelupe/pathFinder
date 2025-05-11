@@ -71,3 +71,27 @@ This heuristic is suitable for grid-based movement without diagonals.
 ### ✅ Output
 - Displays the path as a list of coordinate steps
 - Optionally, renders the maze with the path visually marked
+
+---
+
+## 🧪 Example
+__Input Maze:__
+```mathematica
+S 0 1 0 0  
+0 0 1 0 1  
+1 0 1 0 0  
+1 0 0 E 1  
+```
+
+__Path Output:__
+```csharp
+[s(0, 0), (1, 0), (1, 1), (2, 1), (3, 1), (3, 2), e(3, 3)]
+```
+
+__Maze with Path Marked:__
+```mathematica
+S * 1 0 0  
+0 * 1 0 1  
+1 * 1 0 0  
+1 * * E 1  
+```
