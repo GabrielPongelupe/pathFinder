@@ -1,4 +1,5 @@
 # 🤖 PathFinder – Solving the 2D Maze with the A Algorithm*
+This project was developed as part of the coursework for the subject Foundations of Algorithm Design and Analysis (FPAA), taught by professor João Paulo Carneiro Aramuni, in the Software Engineering program at PUC Minas.
 
 ## 👥 Team Members
 <table>
