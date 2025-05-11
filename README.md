@@ -52,6 +52,18 @@ __h(n) = |x₁ - x₂| + |y₁ - y₂|__
 
 This heuristic is suitable for grid-based movement without diagonals.
 
+## ⚙️ How to Run
+### Requirements
+- Python 3.6 or higher
+- -
+### Execution
+1. Clone Repository
+2. Execute script:
+```bash
+python solution.py
+```
+
+
 ## ⚙️ Features Implemented
 
 ### ✅ Input Handling
@@ -96,3 +108,11 @@ S * 1 0 0
 1 * 1 0 0  
 1 * * E 1  
 ```
+
+---
+
+## 💡 Future Improvements (Optional Features)
+These features were not implemented in this version, but could be added to enhance the project:
+- Allow diagonal movement with a cost of √2
+- Add a real-time graphical interface to visualize the robot's exploration
+- Support different terrain costs (e.g., mud, sand, grass)
